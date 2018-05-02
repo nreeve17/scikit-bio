@@ -8,10 +8,10 @@
 
 import numpy as np
 import numpy.testing as npt
-
 from unittest import TestCase, main
 
-from skbio.stats.ordination import corr, mean_and_std, e_matrix, f_matrix
+from skbio.stats.ordination import corr, mean_and_std, e_matrix, f_matrix, \
+    e_matrix_optimized, f_matrix_optimized
 
 
 class TestUtils(TestCase):
@@ -51,7 +51,7 @@ class TestUtils(TestCase):
 
     def test_e_matrix(self):
         E = e_matrix(self.matrix)
-        expected_E = np.array([[-0.5,  -2.,  -4.5],
+        expected_E = np.array([[-0.5, -2., -4.5],
                                [-8., -12.5, -18.]])
         npt.assert_almost_equal(E, expected_E)
 
@@ -59,6 +59,17 @@ class TestUtils(TestCase):
         F = f_matrix(self.matrix2)
         expected_F = np.zeros((3, 3))
         # Note that `test_make_F_matrix` in cogent is wrong
+        npt.assert_almost_equal(F, expected_F)
+
+    def test_e_matrix_optimized(self):
+        E = e_matrix_optimized(self.matrix)
+        expected_E = np.array([[-0.5, -2., -4.5],
+                               [-8., -12.5, -18.]])
+        npt.assert_almost_equal(E, expected_E)
+
+    def test_f_matrix_optimized(self):
+        F = f_matrix_optimized(self.matrix2)
+        expected_F = np.zeros((3, 3))
         npt.assert_almost_equal(F, expected_F)
 
 

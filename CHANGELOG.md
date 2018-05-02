@@ -4,6 +4,10 @@
 
 ### Features
 * Added `permdisp` to `skbio.stats.distance` to test for the homogeniety of groups. ([#1228](https://github.com/biocore/scikit-bio/issues/1228)).
+<<<<<<< HEAD
+=======
+* Added `FSVD`, an optional faster heuristic method to do Principal Coordinates Analysis in `skbio.stats.ordination.pcoa`.
+>>>>>>> f55da2cd23dbf0daf66de5a60ba8bf7438db7610
 
 ### Backward-incompatible changes [stable]
 
